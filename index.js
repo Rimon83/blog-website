@@ -7,7 +7,7 @@ import session from "express-session";
 import passport from "passport";
 import passportLocalMongoose from "passport-local-mongoose";
 
-import dateFormat from "../modules/date.js";
+import dateFormat from "./modules/date.js";
 const app = express();
 
 // connect to database
