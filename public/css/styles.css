@@ -1,0 +1,123 @@
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header{
+ padding: 20px;
+ background: url(../images/blog-background.jpg);
+ box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+ background-repeat: no-repeat;
+ background-size: cover;
+ color:#000;
+ min-height: 30%;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-between;
+
+}
+header h1{
+  margin: 200px auto;
+}
+header .logo{
+  max-width:100px;
+  max-height: 100px;
+  padding: 10px 0;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  background-image: linear-gradient(to right, rgb(249, 134, 134) ,  rgb(169, 247, 169));
+  color: #000;
+
+  
+}
+header h2{
+width:75px;
+font-size: 2rem;
+letter-spacing: -5px;
+}
+
+header span{
+font-weight: bold;
+
+}
+
+
+header .secondLetter{
+ font-size: 2.5rem;
+ margin:0;
+ padding:0;
+ color: rgba(236, 38, 24, 0.516);
+}
+
+
+
+header a{
+  text-decoration: none;
+}
+header button, main button{
+  padding: 10px 20px;
+  background-color: #e4bdbd;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+header button:hover, main button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+footer{
+ padding: 50px;
+ background-color: #e48e8e;
+ height: 100px;
+ color: #000;
+ text-align: center;
+}
+footer p{
+ width: 300px;
+ margin:  auto;
+}
+
+main article{
+  width: 50%;
+  min-height: 350px;
+  height: auto;
+  font-size: 1.5rem;
+  padding: 50px;
+}
+main h1{
+  margin-bottom: 30px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+ 
+  header{
+    flex-direction: column-reverse;
+    
+    /* flex-flow: row nowrap; */
+    /* justify-content:flex-start; */
+  }
+  header .logo{
+   display: none;
+  }
+  main article{
+    width: 100%;
+  }
+  nav{
+    text-align: right;
+  }
+ 
+}

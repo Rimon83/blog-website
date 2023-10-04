@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/css/styles.css">
+ <link rel="stylesheet" href="/css/signin.css">
+
+ <title>Sign in</title>
+</head>
+<body>
+  <header>
+      <div class="logo">
+        <span>&lt; &gt;</span>
+        <h2>B<span class="secondLetter">G</span>D</h2>
+      </div>
+      <h1>Write your Blog</h1>
+    </header>
+    <main>
+     <article>
+      <form action="/signin" method="post">
+       <label for="username">Email</label>
+       <input type="email" name="username" placeholder="Email" required>
+       <label for="password">Password</label>
+       <input type="password" name="password" placeholder="Password" required>
+       <input class="button" type="submit" value="Sign in">
+      </form>
+     </article>
+    </main>
+ 
+<%- include("footer.ejs") %>

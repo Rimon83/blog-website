@@ -1,0 +1,34 @@
+main article{
+ width: 50%;
+ margin: 50px auto;
+ border: 2px solid;
+ border-radius: 5px;
+ background-color: beige;
+ 
+}
+
+main form {
+ display: flex;
+ flex-flow: column wrap;
+ gap: 20px;
+
+}
+main input{
+ padding: 15px;
+ border-radius: 5px;
+ font-size: 1.2rem;
+}
+
+main .button{
+ background-color: rgb(185, 185, 233);
+}
+main .button:hover{
+ opacity: 0.6;
+}
+
+@media screen and (max-width:676px){
+main article{
+ width:100%;
+}
+ 
+}

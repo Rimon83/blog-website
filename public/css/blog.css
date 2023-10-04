@@ -1,0 +1,70 @@
+main .main{
+ width:100%;
+ border: none;
+ margin:0 auto;
+ background-image: linear-gradient(to right, rgb(240, 229, 229) ,  rgb(169, 247, 169));
+}
+
+header .name{
+ text-align: right;
+ display: flex;
+ flex-flow: column;
+ gap:20px
+}
+
+.name a{
+ color: #000;
+ font-size: 0.8rem;
+}
+.name a:hover{
+ opacity: 0.6;
+}
+
+textarea{
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.post{
+  width: 80%;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+  margin: 50px auto;
+  border-top: 3px dashed #000;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.post .dateFormat{
+  font-size: 0.7rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.post p{
+ font-size: 1rem;
+}
+.post h6{
+ font-size: 1rem;
+ font-family: 'Courier New', Courier, monospace;
+}
+
+.btns{
+  display: flex;
+  flex-flow: row wrap;
+  gap:10px;
+  margin-top: 10px;
+}
+
+.postHeading{
+  text-align: center;
+}
+
+.topLink{
+  margin:10px 15px;
+}
+
+@media screen and(max-width:600px) {
+
+}

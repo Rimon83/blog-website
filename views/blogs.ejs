@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/signin.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+
+    <title>Sign in</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>&lt; &gt;</span>
+        <h2>B<span class="secondLetter">G</span>D</h2>
+      </div>
+      <h1>Write your Blog</h1>
+      
+      <div class="name">
+        <h3><%= name %></h3>
+        <a href="/signout">Sign out</a>
+      </div>
+    </header>
+    <main>
+      <article class="main">
+        <h1>Blog trending </h1>
+        <a href="/new"><button>New post</button></a>
+        <% if (locals.blogs){ %> <% blogs.forEach(function(blog){ %>
+        <div class="post">
+          <h6>Written by <%= blog.fullname %></h6>
+          <p class="dateFormat"><%= blog.date %></p>
+
+          <h3><%= blog.title %></h3>
+          <p><%= blog.content.substring(0,200) + "..." %> <a href="/blogs/<%= blog.title %>">Read more</a></p>
+          <% if (name.toString() === blog.fullname.toString()){ %>
+          <div class="btns">
+            <a  href="/edit/<%= blog._id %>"><button>Edit</button></a>
+            <a href="/delete/<%= blog._id %>"><button>Delete</button></a>
+          </div>
+          <% } %>
+        </div>
+        <% }) %> 
+        <% } else{ %>
+           <div class="post">
+          <h6>Written by <%= blogByTitle.fullname %></h6>
+          <p class="dateFormat"><%= blogByTitle.date %></p>
+
+          <h3><%= blogByTitle.title %></h3>
+          <p><%= blogByTitle.content%></p>
+          <div class="btns">    
+          </div>
+          <a href="/blogs"><button>Back to blogs</button></a>
+        </div>
+
+          <% } %>
+      </article>
+    </main>
+
+    <%- include("footer.ejs") %>
+  </body>
+</html>

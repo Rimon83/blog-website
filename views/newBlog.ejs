@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/css/styles.css">
+ <link rel="stylesheet" href="/css/signin.css">
+ <link rel="stylesheet" href="/css/blog.css">
+
+ <title>Sign in</title>
+</head>
+<body>
+  <header>
+      <div class="logo">
+        <span>&lt; &gt;</span>
+        <h2>B<span class="secondLetter">G</span>D</h2>
+      </div>
+      <h1>Write your Blog</h1>
+      <div class="name">
+        <h3><%= name %></h3>
+        <a href="/signout">Sign out</a>
+      </div>
+    </header>
+    <main>
+     <article>
+      <h1 class="postHeading"><%= heading %></h1>
+      <% if (!locals.blog){ %>
+      <form action="/new" method="post">
+       <label for="title">Title</label>
+       <input type="text" name="title" placeholder="Title">
+       <label for="post">Post</label>
+       <textarea name="post" id="" cols="50" rows="20" placeholder="Type your blog"></textarea> 
+       <input class="button" type="submit" value="<%= button %>">
+      </form>
+      <% }else{ %>
+         <form action="/edit/<%= blog._id %>" method="post">
+       <label for="title">Title</label>
+       <input type="text" name="title" placeholder="Title" value="<%= blog.title %>">
+       <label for="post">Post</label>
+       <textarea name="post" id="" cols="50" rows="20" placeholder="Type your blog" ><%= blog.content %></textarea> 
+       <input class="button" type="submit" value="<%= button %>">
+      </form>
+        <% } %>
+     </article>
+    </main>
+ 
+<%- include("footer.ejs") %>
