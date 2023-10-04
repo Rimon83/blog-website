@@ -8,7 +8,7 @@ import passport from "passport";
 import passportLocalMongoose from "passport-local-mongoose";
 
 import dateFormat from "../modules/date.js";
-const app = express();
+const app = (module.exports = express());
 
 // connect to database
 const url = `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@cluster0.0upwaqt.mongodb.net/blogDB`;
