@@ -10,7 +10,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^7.5.2",
     "passport": "^0.6.0",
-    "passport-local-mongoose": "^8.0.0"
+    "passport-local-mongoose": "^8.0.0",
+    "vercel": "^32.4.1"
   }
 }
