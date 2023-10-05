@@ -8,7 +8,10 @@ import passport from "passport";
 import passportLocalMongoose from "passport-local-mongoose";
 
 import dateFormat from "./modules/date.js";
-const app = (module.exports = express());
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const app = express();
 
 // connect to database
 const url = `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@cluster0.0upwaqt.mongodb.net/blogDB`;
@@ -57,7 +60,7 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
 app.use(passport.initialize());
@@ -66,20 +69,20 @@ app.use(passport.session());
 let date = new Date().getFullYear();
 
 app.get("/", function (req, res) {
-  res.render("home", { date: date });
+  res.render(__dirname+"/views/home.ejs", { date: date });
 });
 
 app.get("/signin", function (req, res) {
-  res.render("signin", { date: date });
+  res.render(__dirname + "/views/signin.ejs", { date: date });
 });
 app.get("/signup", function (req, res) {
-  res.render("signup", { date: date });
+  res.render(__dirname + "/views/signup.ejs", { date: date });
 });
 app.get("/new", async function (req, res) {
   if (req.isAuthenticated()) {
     const id = req.user.id;
     const name = await User.find({ _id: id }, { fullname: 1 });
-    res.render("newBlog", {
+    res.render(__dirname + "/views/newBlog.ejs", {
       date: date,
       name: name[0].fullname,
       heading: "Create New Post",
@@ -94,7 +97,7 @@ app.get("/blogs", async function (req, res) {
     const name = await User.find({ _id: id }, { fullname: 1 });
     const findBlogAll = await Blog.find({});
 
-    res.render("blogs", {
+    res.render(__dirname + "/views/blogs.ejs", {
       date: date,
       name: name[0].fullname,
       blogs: findBlogAll,
@@ -158,7 +161,7 @@ app.post("/new", async function (req, res) {
   blog.save().then(
     (docs) => {
       console.log("doc inserted in blogDB");
-      res.redirect("/blogs");
+      res.redirect("blogs");
     },
     (e) => {
       console.log("unable to save");
@@ -174,7 +177,7 @@ app.get("/edit/:id", async function (req, res) {
 
     const blogWithId = await Blog.findById(blogId);
 
-    res.render("newBlog", {
+    res.render(__dirname + "/views/newBlog.ejs", {
       blog: blogWithId,
       date: date,
       name: name[0].fullname,
@@ -214,7 +217,7 @@ app.get("/blogs/:title", async function (req, res) {
   const title = req.params.title;
   const blogByTitle = Blog.findOne({ title: title }).exec();
   blogByTitle.then((blog) => {
-    res.render("blogs", {
+    res.render(__dirname + "/views/blogs.ejs", {
       date: date,
       name: name[0].fullname,
       blogByTitle: blog,
@@ -226,4 +229,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening on port ${port}`));
 
 
-module.exports = app;
