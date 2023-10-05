@@ -7,7 +7,7 @@ import session from "express-session";
 import passport from "passport";
 import passportLocalMongoose from "passport-local-mongoose";
 
-import dateFormat from "../modules/date.js";
+import dateFormat from "./modules/date.js";
 const app = (module.exports = express());
 
 // connect to database
@@ -224,3 +224,6 @@ app.get("/blogs/:title", async function (req, res) {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening on port ${port}`));
+
+
+module.exports = app;
